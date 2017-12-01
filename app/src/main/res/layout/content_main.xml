@@ -6,35 +6,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:clipToPadding="false"
+    android:padding="15dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_main">
-
-    <LinearLayout
-        android:padding="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:layout_gravity="bottom"
-            android:inputType="textAutoComplete" />
-
-        <ImageButton
-            android:id="@+id/searchBtn"
-            android:layout_width="196dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_search_black_24dp" />
-    </LinearLayout>
+    tools:showIn="@layout/activity_main" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" >
+
         <ProgressBar
             android:id="@+id/progressBar"
             android:visibility="invisible"
@@ -45,19 +24,22 @@
             android:indeterminate="true" />
 
         <ScrollView
-            android:padding="16dp"
             android:id="@+id/textViewer"
             android:visibility="invisible"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" >
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
         </ScrollView>
     </RelativeLayout>
-
 </LinearLayout>

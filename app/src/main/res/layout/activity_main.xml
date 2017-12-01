@@ -6,15 +6,27 @@
     android:layout_height="match_parent"
     tools:context="com.riteshmohapatra.wikipediareader.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:fitsSystemWindows="true">
 
-    </android.support.design.widget.AppBarLayout>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextColor="@android:color/white"
+            android:background="?attr/colorPrimary" />
 
-    <include layout="@layout/content_main"
-        android:id="@+id/include" />
+        <include layout="@layout/content_main"
+            android:id="@+id/include" />
+
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/volume"
