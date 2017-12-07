@@ -1,3 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="layout_margin">15dp</dimen>
+    <dimen name="viewer_margin">80dp</dimen>
 </resources>

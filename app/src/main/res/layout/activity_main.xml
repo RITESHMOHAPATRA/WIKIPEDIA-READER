@@ -12,6 +12,7 @@
         android:orientation="vertical"
         android:clickable="true"
         android:focusable="true"
+        android:focusableInTouchMode="true" >
         android:focusableInTouchMode="true"
         android:fitsSystemWindows="true">
 
@@ -20,6 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
+            android:theme="@style/Dark.Overlay"
+            android:elevation="6dp"/>
             app:titleTextColor="@android:color/white"
             android:background="?attr/colorPrimary" />
 
@@ -34,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:elevation="6dp"
         app:srcCompat="@drawable/ic_play_arrow" />
 
 </android.support.design.widget.CoordinatorLayout>
