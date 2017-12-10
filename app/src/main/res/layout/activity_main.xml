@@ -13,6 +13,7 @@
         android:clickable="true"
         android:focusable="true"
         android:focusableInTouchMode="true" >
+
         android:focusableInTouchMode="true"
         android:fitsSystemWindows="true">
 
@@ -23,6 +24,7 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/Dark.Overlay"
             android:elevation="6dp"/>
+
             app:titleTextColor="@android:color/white"
             android:background="?attr/colorPrimary" />
 

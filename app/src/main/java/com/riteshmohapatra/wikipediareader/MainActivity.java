@@ -17,6 +17,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.view.View;
+import android.view.View.OnFocusChangeListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -66,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
 
     private FloatingActionButton fab;
+
     // search
     private Toolbar toolbar;
     private MenuItem searchBtn;
@@ -199,6 +206,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         return true;
+
         return true;
     }
 
@@ -228,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void search(String query) {
         String url = "https://en.wikipedia.org/w/api.php?action=query&list=search&srprop=&format=json&srsearch=" + encodeURIComponent(query);
+
         if(isSearchOpen)
             hideSearchBox();
         else
@@ -249,6 +258,7 @@ public class MainActivity extends AppCompatActivity {
                             for (int i=0; i<jsonresults.length(); i++)
                                 results.add(jsonresults.getJSONObject(i).getString("title"));
                             adapter.notifyDataSetChanged();
+
                         progress.setVisibility(View.INVISIBLE);         // hide the progress bar
                         try {
                             JSONObject pages = response.getJSONObject("query")
@@ -332,6 +342,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static String encodeURIComponent(String s) {
         String result;
+
         MainActivity.this.queue.add(jsObjRequest);
     }
 
@@ -416,7 +427,6 @@ public class MainActivity extends AppCompatActivity {
     private static String encodeURIComponent(String s)
     {
         String result = null;
-
         try
         {
             result = URLEncoder.encode(s, "UTF-8")

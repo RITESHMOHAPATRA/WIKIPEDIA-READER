@@ -10,6 +10,7 @@
         app:showAsAction="collapseActionView|ifRoom"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:queryHint="Search Wikipedia" />
+
         android:id="@+id/search_btn"
         android:title="Search"
         android:orderInCategory="200"
