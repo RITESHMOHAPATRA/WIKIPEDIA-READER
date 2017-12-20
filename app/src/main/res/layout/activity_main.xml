@@ -14,8 +14,10 @@
         android:focusable="true"
         android:focusableInTouchMode="true" >
 
+
         android:focusableInTouchMode="true"
         android:fitsSystemWindows="true">
+
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -25,8 +27,10 @@
             android:theme="@style/Dark.Overlay"
             android:elevation="6dp"/>
 
+
             app:titleTextColor="@android:color/white"
             android:background="?attr/colorPrimary" />
+
 
         <include layout="@layout/content_main"
             android:id="@+id/include" />
