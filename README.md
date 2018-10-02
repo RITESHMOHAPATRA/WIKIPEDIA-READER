@@ -1,4 +1,10 @@
-# WIKIPEDIA-READER
-Reads the content in wikipedia page of the query
+# WIKIPEDIA READER
+A basic Android client for Wikipedia.
 
-Please contribute like how to read the full article and some UI improvemrnt.
+### Features
+- Search for any article
+- Displays full article
+- Displays the first image in the article
+- Reads out article.
+
+Please check the issues tab for features to contribute.

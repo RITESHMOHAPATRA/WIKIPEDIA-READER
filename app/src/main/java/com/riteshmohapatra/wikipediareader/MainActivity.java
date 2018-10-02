@@ -23,6 +23,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.view.View;
+import android.view.View.OnFocusChangeListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -118,8 +124,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar); // set toolbar as the ActionBar
+
 
 
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,results);
@@ -162,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
                                     TextToSpeech.QUEUE_ADD, null); // add chunk to queue
                     }
 
+
                     fab.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_stop));
                     // flush the tts queue
                     tts.speak(" ", TextToSpeech.QUEUE_FLUSH, null);
@@ -171,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
                     for (int index = 0; index < article.length(); index += 3000)
                         tts.speak(article.substring(index, Math.min(index + 3000,article.length())),
                                   TextToSpeech.QUEUE_ADD, null); // add chunk to queue
+
 
                 }
             }
@@ -236,6 +246,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
 
 
+
         return true;
     }
 
@@ -250,6 +261,7 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.search_btn)
             handleSearchButton();
         return super.onOptionsItemSelected(item);
+
 
     }
 
@@ -266,6 +278,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void search(String query) {
+
+        isTextVisible=false;
+        String url = "https://en.wikipedia.org/w/api.php?action=query&list=search&srprop=&format=json&srsearch=" + encodeURIComponent(query);
+
 
         isTextVisible=false;
         String url = "https://en.wikipedia.org/w/api.php?action=query&list=search&srprop=&format=json&srsearch=" + encodeURIComponent(query);
@@ -296,6 +312,7 @@ public class MainActivity extends AppCompatActivity {
                                 results.add(jsonresults.getJSONObject(i).getString("title"));
                             adapter.notifyDataSetChanged();
 
+
                         progress.setVisibility(View.INVISIBLE);         // hide the progress bar
                         try {
                             JSONObject pages = response.getJSONObject("query")
@@ -305,6 +322,7 @@ public class MainActivity extends AppCompatActivity {
                             setTitle(pages.getJSONObject(firstPage).getString("title"));       // set the title to the article title.
                             textViewer.setVisibility(View.VISIBLE);         // make viewer visible
                             textView.setText(text);                         // load the content into the viewer.
+
 
                         } catch (JSONException ex) {                        // response could not be parsed.
                             Toast.makeText(MainActivity.this,"Error in parsing response", Toast.LENGTH_SHORT).show();
@@ -316,7 +334,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {        // no response
                         //progress.setVisibility(View.INVISIBLE);
 
+
                         progress.setVisibility(View.INVISIBLE);
+
                         // todo: view image
                         Toast.makeText(MainActivity.this,"Error in getting response", Toast.LENGTH_SHORT).show();
 
@@ -359,9 +379,11 @@ public class MainActivity extends AppCompatActivity {
                             } catch (JSONException e) { } // do nothing
                             isTextVisible=true;
                             emptyView.setVisibility(View.GONE);
+
                                 imageView.setVisibility(View.VISIBLE);
                                 Picasso.with(getApplicationContext()).load(imgurl).placeholder(R.drawable.placeholder).resize(600,0).into(imageView);
                             } catch (JSONException e) { } // do nothing
+
                             textViewer.setVisibility(View.VISIBLE);         // make viewer visible
                             textView.setText(Html.fromHtml(text));          // load the content into the viewer.
                         } catch (JSONException ex) {                        // response could not be parsed.
@@ -390,6 +412,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static String encodeURIComponent(String s) {
         String result;
+
 
         MainActivity.this.queue.add(jsObjRequest);
     }

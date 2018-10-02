@@ -28,8 +28,10 @@
             android:elevation="6dp"/>
 
 
+
             app:titleTextColor="@android:color/white"
             android:background="?attr/colorPrimary" />
+
 
 
         <include layout="@layout/content_main"

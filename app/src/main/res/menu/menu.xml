@@ -12,11 +12,13 @@
         app:queryHint="Search Wikipedia" />
 
 
+
         android:id="@+id/search_btn"
         android:title="Search"
         android:orderInCategory="200"
         android:icon="@drawable/ic_open_search"
         app:showAsAction="ifRoom"
         />
+
 
 </menu>
